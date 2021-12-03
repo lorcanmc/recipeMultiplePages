@@ -14,17 +14,24 @@
       <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
 
    <!-- Search Bar -->
+   <div id ="search">
       <input aria-label="food-input" id="food-input" />
       <button id="recipe-button">Give me a recipe!</button>
       <a id="recipe-label"></a>
+      </div>
     </section>
 
     <!-- Search Result -->
     <!-- Show Recipe -->
     <div id="card-container">
-      <div class="cardStyle" id="card1">
-         <img id="recipe-thumbnail">      <!-- add thumbnail src in js -->
-        <p id="recipe-name"></p>
+      <div class="cardStyle" id="show-recipe">
+        <div id="the-recipe">
+        <img id="recipe-thumbnail">      <!-- add thumbnail src in js -->
+        <p id="recipe-name"></p>          <!-- add recipe name-->
+        </div>
+        <div id="recipe-info">
+        <ul id="ingredients-list"><span id="ingredients-subheading">Ingredients</span></ul>   <!-- ingriedients list - add Li in JS-->
+        </div>
       </div> 
     </div>
     <script src="./main.js"></script>
