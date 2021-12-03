@@ -1,11 +1,37 @@
-function handleRecipeClick() {}
 
-function handleInputChange() {}
+let searchInput = document.querySelector("#food-input");
 
-async function fetchRecipe(food) {
+function handleRecipeClick() {
+    console.log("hello")
+    let searchString = searchInput.value;
+    console.log(searchString);
 
-    let response = await fetch("https://api.edamam.com/api/recipes/v2?type=public&q=cheese&app_id=54bc5425&app_key=7b4349e0a80c3457542551922ada680");
-    let data = await reSVGTextPositioningElement.json();
-
-    console.log(data);
+    fetchRecipe(searchString);
 }
+
+let searchButton = document.querySelector("#recipe-button")
+
+searchButton.addEventListener("click", handleRecipeClick);
+
+
+
+
+
+async function fetchRecipe(searchString) {
+
+    let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchString}&app_id=54bc5425&app_key=d7b4349e0a80c3457542551922ada680`);
+    let data = await response.json();
+    console.log(data)
+
+    let recipe = data.hits[0].recipe;
+    console.log(recipe);
+    let recipeName = recipe.label;
+    console.log(recipeName);
+    let recipeimages = recipe.images;
+    console.log(recipeimages);
+    let recipeInredients = recipe.ingredients
+    console.log(recipeInredients);
+}
+
+
+fetchRecipe("tofu");
