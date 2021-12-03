@@ -4,14 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fetch</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+  <!-- Search Page -->
+
+    <!-- Header -->
     <section id="recipe-section">
       <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
+
+   <!-- Search Bar -->
       <input aria-label="food-input" id="food-input" />
       <button id="recipe-button">Give me a recipe!</button>
       <a id="recipe-label"></a>
     </section>
+
+    <!-- Search Result -->
+    <!-- Show Recipe -->
+    <div id="card-container">
+      <div class="cardStyle" id="card1">
+         <img id="recipe-thumbnail">      <!-- add thumbnail src in js -->
+        <p id="recipe-name"></p>
+      </div> 
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>

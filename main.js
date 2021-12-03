@@ -13,8 +13,15 @@ let searchButton = document.querySelector("#recipe-button")
 
 searchButton.addEventListener("click", handleRecipeClick);
 
+// let cardContainer = document.querySelector("#card-container")
 
-
+// function createrecipeCard() {
+//     let recipeCard = document.createElement("div");
+//     //add class
+//     recipeCard.classList.add("cardStyle");
+//     //append to #card-container
+//     cardContainer.appendChild("recipeCard");
+// }
 
 
 async function fetchRecipe(searchString) {
@@ -27,10 +34,17 @@ async function fetchRecipe(searchString) {
     console.log(recipe);
     let recipeName = recipe.label;
     console.log(recipeName);
-    let recipeimages = recipe.images;
-    console.log(recipeimages);
-    let recipeInredients = recipe.ingredients
-    console.log(recipeInredients);
+
+
+
+    let recipeThumbnailURL = recipe.images.THUMBNAIL.url;
+    let recipeThumbnail = document.querySelector("#recipe-thumbnail");
+    console.log(recipeThumbnailURL)
+    recipeThumbnail.src = recipeThumbnailURL;
+    
+    let recipeIngredients = recipe.ingredients;
+    
+
 }
 
 
