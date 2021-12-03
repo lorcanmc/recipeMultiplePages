@@ -23,41 +23,54 @@ async function fetchRecipe(searchString) {
     let data = await response.json();
     console.log(data)
 
-    let recipe = data.hits[0].recipe;                   //recipe = the first search hit
+    //chooses a recipe object and stores it in variable called recipe
+    let randomIndex = Math.floor(Math.random()*data.hits.length)
+    let recipe = data.hits[randomIndex].recipe;             
     console.log(recipe);
 
+    //upper background image
+    let backgroundImageURL = recipe.images.REGULAR.url;
+    console.log(backgroundImageURL);
+    let backgroundImageDiv = document.querySelector("#show-recipe");
+    console.log(backgroundImageDiv);
+    backgroundImageDiv.style.background = `url(${backgroundImageURL})`;
 
+
+    //meal name
     let recipeNameString = recipe.label;
     console.log(recipeNameString);
     let recipeName = document.querySelector("#recipe-name");
     console.log(recipeName);
-    recipeName.innerText = recipeNameString;            //updates the meal name
+    recipeName.innerText = recipeNameString;        
     
+    // //thumbnail image
+    // let recipeThumbnailURL = recipe.images.THUMBNAIL.url;
+    // let recipeThumbnail = document.querySelector("#recipe-thumbnail");
+    // recipeThumbnail.src = recipeThumbnailURL;
     
-    let recipeThumbnailURL = recipe.images.THUMBNAIL.url;
-    let recipeThumbnail = document.querySelector("#recipe-thumbnail");
-    recipeThumbnail.src = recipeThumbnailURL;           //updates the thmubnail image
-    
+    //ingredients list
     let recipeIngredients = recipe.ingredients;
     let prevIngredLis = document.querySelectorAll("#ingredients-list li");
-    console.log(prevIngredLis);
     for(let i=0; i<prevIngredLis.length; i++) {
         prevIngredLis[i].remove();
-    }                                     //deletes previous ingredient list
+    }                                    //deletes previous ingredient list
     recipeIngredients.forEach(addIngredientToList);     //adds the new ingredients list
+
+    // OPTIONS FOR LABELS:
+    //cuisineType
+    //dishType
+    //mealType
+    //healthLabel
+    //dietLabel    //dishType
+    //mealType
+    //healthLabel
+    //dietLabel
+
 }
 
 
 fetchRecipe("tofu");
 
-
-
-
-
-
-
-
-// to delete previous ingredients:
 
 
 
