@@ -8,24 +8,31 @@
   </head>
   <body>
   <!-- Search Page -->
-
+<div id="app-wrapper">
     <!-- Header -->
     <section id="recipe-section">
-      <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
+      <!-- <h2 class="section-heading">What are you feeling today?</h2> -->
 
-   <!-- Search Bar & Button-->
-      <input aria-label="food-input" id="food-input" />
+   <!-- Search Bar -->
+   <div id ="search">
+      <input aria-label="food-input" id="food-input" placeholder="What are you feeling today?"/>
       <button id="recipe-button">Give me a recipe!</button>
-      <a id="recipe-label"></a>
+      <a id="recipe-label"></a> 
+      </div>
     </section>
 
     <!-- Search Result -->
     <!-- Show Recipe -->
     <div id="card-container">
-      <div class="cardStyle" id="card1">
-         <img id="recipe-thumbnail">      <!-- add thumbnail src in js -->
-        <p id="recipe-name">Recipe Name</p>
-        <p id="recipe-info">Info</p>
+      <div class="cardStyle" id="show-recipe">
+        <div id="the-recipe">
+          <img id="recipe-thumbnail">      <!-- add thumbnail src in js -->
+          <h2 id="recipe-name"></h2><BR>          <!-- add recipe name-->
+          <h4 id="calories"></h4>             <!-- Shows Calories -->
+        </div>
+        <div id="recipe-info">
+          <ul id="ingredients-list"><span class="recipe-subheadings">INGREDIENTS</span></ul>   <!-- ingredients list - add Li in JS-->
+        </div>
       </div> 
     </div>
     <script src="./main.js"></script>

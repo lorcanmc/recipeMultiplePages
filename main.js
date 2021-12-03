@@ -1,51 +1,68 @@
 
 let searchInput = document.querySelector("#food-input");
+let searchButton = document.querySelector("#recipe-button");
 
+//handling searchButton click
 function handleRecipeClick() {
-    console.log("hello")
     let searchString = searchInput.value;
-    console.log(searchString);
-
     fetchRecipe(searchString);
 }
-
-let searchButton = document.querySelector("#recipe-button")
-
 searchButton.addEventListener("click", handleRecipeClick);
 
-// let cardContainer = document.querySelector("#card-container")
 
-// function createrecipeCard() {
-//     let recipeCard = document.createElement("div");
-//     //add class
-//     recipeCard.classList.add("cardStyle");
-//     //append to #card-container
-//     cardContainer.appendChild("recipeCard");
-// }
+//adds ingredient to the bullet point list in #recipe-info
+function addIngredientToList(ingredient) {
+    let newListItem = document.createElement("li");
+    newListItem.innerText = ingredient.text;
+    let list = document.querySelector("#ingredients-list");
+    list.appendChild(newListItem);
+}
 
-
+//fetches data from API and updates webpage
 async function fetchRecipe(searchString) {
 
+    //fetches data
     let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchString}&app_id=54bc5425&app_key=d7b4349e0a80c3457542551922ada680`);
     let data = await response.json();
-    console.log(data)
+    console.log(data);
 
-    let recipe = data.hits[0].recipe;
+    //chooses a recipe object and stores it in variable called recipe
+    let randomIndex = Math.floor(Math.random()*data.hits.length);
+    let recipe = data.hits[randomIndex].recipe;             
     console.log(recipe);
-    let recipeName = recipe.label;
-    console.log(recipeName);
+
+    //upper background image
+    let backgroundImageURL = recipe.images.REGULAR.url;
+    let backgroundImageDiv = document.querySelector("#show-recipe");
+    backgroundImageDiv.style.background = `url(${backgroundImageURL})`;
 
 
-
-    let recipeThumbnailURL = recipe.images.THUMBNAIL.url;
-    let recipeThumbnail = document.querySelector("#recipe-thumbnail");
-    console.log(recipeThumbnailURL)
-    recipeThumbnail.src = recipeThumbnailURL;
+    //meal name
+    let recipeNameString = recipe.label;
+    let recipeName = document.querySelector("#recipe-name");
+    recipeName.innerText = recipeNameString;        
     
+    //calories
+    let caloriesNumber = Math.round(recipe.calories);
+    let calories = document.querySelector("#calories");
+    calories.innerText = `${caloriesNumber} calories`;
+    
+    //ingredients list
     let recipeIngredients = recipe.ingredients;
-    
+    let prevIngredLis = document.querySelectorAll("#ingredients-list li");
+    for(let i=0; i<prevIngredLis.length; i++) {
+        prevIngredLis[i].remove();
+    }                                                   //deletes previous ingredient list
+    recipeIngredients.forEach(addIngredientToList);     //adds the new ingredients list
 
+    
+    // OPTIONS FOR MORE LABELS:
+    //cuisineType
+    //dishType
+    //mealType
+    //healthLabel
+    //dietLabel
 }
 
 
-fetchRecipe("tofu");
+fetchRecipe("tofu");                //called when webpage loads
