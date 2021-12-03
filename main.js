@@ -55,7 +55,14 @@ async function fetchRecipe(searchString) {
     }                                                   //deletes previous ingredient list
     recipeIngredients.forEach(addIngredientToList);     //adds the new ingredients list
 
-    
+    //cuisine type
+    let cuisine = recipe.cuisineType[0];
+    let cuisineType = document.querySelector("#cuisine-type");
+    cuisineType.innerText = cuisine;
+
+
+
+
     // OPTIONS FOR MORE LABELS:
     //cuisineType
     //dishType
