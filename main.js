@@ -43,6 +43,13 @@ async function fetchRecipe(searchString) {
     console.log(recipeName);
     recipeName.innerText = recipeNameString;        
     
+    //calories
+    let caloriesNumber = Math.round(recipe.calories);
+    console.log(caloriesNumber);
+    let calories = document.querySelector("#calories");
+    console.log(calories);
+    calories.innerText = `${caloriesNumber} calories`;
+
     // //thumbnail image
     // let recipeThumbnailURL = recipe.images.THUMBNAIL.url;
     // let recipeThumbnail = document.querySelector("#recipe-thumbnail");
