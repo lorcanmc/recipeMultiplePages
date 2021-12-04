@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch</title>
+  <link rel="stylesheet" href="recipe.css">
+</head>
+<body>
+  <div id="app-wrapper">
+    <!-- Header -->
+    <header id="search">
+      <input aria-label="food-input" id="food-input" placeholder="What are you feeling today?"/>
+      <button id="recipe-button">Give me a recipe!</button>
+    </header>
+
+    <!-- Show Recipe -->
+    <div id="show-recipe">
+      <h1 id="recipe-name"></h1>
+      <h4 id="calories"></h4>
+      <div id="recipe-info">
+          <ul id="ingredients-list"><span class="recipe-subheadings">INGREDIENTS</span></ul>
+          <p id="cuisine-type"></p>
+      </div>
+    </div> 
+  
+  </div>
+  <script src="recipe.js"></script>
+</body>
+</html>

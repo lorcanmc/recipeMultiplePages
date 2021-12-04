@@ -64,7 +64,6 @@ async function fetchRecipe(searchString) {
 
 
     // OPTIONS FOR MORE LABELS:
-    //cuisineType
     //dishType
     //mealType
     //healthLabel
@@ -72,4 +71,4 @@ async function fetchRecipe(searchString) {
 }
 
 
-fetchRecipe("tofu");                //called when webpage loads
+fetchRecipe();                //called when webpage loads

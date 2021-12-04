@@ -1,0 +1,52 @@
+:root {
+    --main-background-color: rgb(52, 142, 158) 
+}
+
+* {
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: brown;
+}
+
+#app-wrapper{
+    width: 100vw;
+    max-width: 1000px;
+    margin: 0 auto; 
+}
+
+#search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background: var(--main-background-color);
+    border: none;
+}
+
+#food-input {
+    width: 50vw;
+    max-width: 500px;
+    height: 25px;
+    border-radius: 15px;
+    padding: 0 20px;
+    margin: 10px;
+}
+
+#recipe-button {
+    font-size: 15px;
+    height: 30px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 0 20px;
+    margin: 10px;
+}
+
+#recipe-button:hover {
+    background-color: #0acf56;
+    color: white;
+}
